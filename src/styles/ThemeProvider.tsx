@@ -1,8 +1,12 @@
-import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import { css, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { createContext, FC, PropsWithChildren, useMemo, useState } from "react";
 import { darkTheme } from "./themes/darkTheme";
 import { lightTheme } from "./themes/lightTheme";
 import { ThemeName } from "./types/ThemeName";
+
+const globalStyles = () => ({
+  global: css``,
+});
 
 export const ThemeContext = createContext<{
   setThemeName: (themeName: ThemeName) => void;

@@ -1,8 +1,13 @@
-import { Theme } from "../types/Theme";
+import { createTheme } from "@mui/material";
+import { common } from "@mui/material/colors";
 
-export const darkTheme: Theme = {
-  colors: {
-    primary: "white",
-    backgroundPrimary: "black",
+export const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: common.white,
+    },
+    background: {
+      default: common.black,
+    },
   },
-};
+});

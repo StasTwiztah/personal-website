@@ -1,5 +1,9 @@
 {
   "home": {
     "heading": "Index page"
-  }
+  },
+  "about": "about",
+  "career": "career",
+  "portfolio": "portfolio",
+  "contact": "contact"
 }
