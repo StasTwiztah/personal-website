@@ -1,3 +1,3 @@
 export const Career = () => {
-  return <div>Career</div>;
+  return <div>Тут про каждую компанию с примерами и фотками</div>;
 };

@@ -60,7 +60,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
       </main>
       <footer>
         <Toolbar>
-          <Typography>© 2022 Stanislav Sapogov</Typography>
+          <Typography>{`© ${new Date().getFullYear()} Stanislav Sapogov`}</Typography>
           <Box sx={{ display: "flex" }}>
             {pages.map((page) => (
               <Link key={page} to={page} style={{ textDecoration: "none" }}>

@@ -19,6 +19,7 @@ export const Home = () => {
   return (
     <div className={styles.root}>
       <h1 className={styles.heading}>{t("home.heading")}</h1>
+      Тут какую-нибудь фотку с кратким описанием того, что происходит
     </div>
   );
 };
