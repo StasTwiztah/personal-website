@@ -5,5 +5,8 @@
   "about": "about",
   "career": "career",
   "portfolio": "portfolio",
-  "contact": "contact"
+  "contact": {
+    "page-title": "contact",
+    "title": "contact."
+  }
 }

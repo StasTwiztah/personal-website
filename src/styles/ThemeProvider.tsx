@@ -33,7 +33,7 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
         setThemeName,
       }}
     >
-      <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>
+      <EmotionThemeProvider theme={lightTheme}>{children}</EmotionThemeProvider>
     </ThemeContext.Provider>
   );
 };

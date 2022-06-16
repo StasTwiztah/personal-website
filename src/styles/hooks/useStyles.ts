@@ -1,5 +1,6 @@
 import { useMemo } from "react";
-import { Theme, useTheme } from "@mui/material";
+import { Theme } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 export function useStyles<TStyles extends Record<string, unknown>, TProps>(
   styles: (theme: Theme, props: TProps) => TStyles,
@@ -22,6 +23,7 @@ export function useStyles<
   TProps = undefined
 >(styles: (theme: Theme, props?: TProps) => TStyles, props?: TProps): TStyles {
   const theme = useTheme();
+  console.log(theme);
 
-  return useMemo(() => styles(theme, props), [props, styles, theme]);
+  return useMemo(() => styles(theme as Theme, props), [props, styles, theme]);
 }

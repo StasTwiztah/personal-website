@@ -1,3 +1,3 @@
 export const Portfolio = () => {
-  return <div>Portfolio</div>;
+  return <div>Проекты, боты</div>;
 };
