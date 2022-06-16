@@ -1,15 +1,15 @@
 import { css } from "@emotion/css";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import {
   AppBar,
   Box,
   Button,
   Container,
+  Link as MaterialLink,
   Theme,
   Toolbar,
   Typography,
-  Link as MaterialLink,
 } from "@mui/material";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Outlet } from "react-router-dom";
@@ -30,6 +30,7 @@ const layoutStyles = (theme: Theme) => ({
     flex: 1;
     max-width: 100vw;
     background-color: ${theme.palette.background.default};
+    padding-bottom: 50px;
   `,
   footer: css`
     position: relative;
@@ -56,11 +57,16 @@ const layoutStyles = (theme: Theme) => ({
     border-top-right-radius: 110px;
     border-bottom: 0;
 
-    line-height: 70px;
+    line-height: 60px;
     text-align: center;
     background-color: ${theme.palette.background.paper};
     box-shadow: inset 0px 6px 4px -3px rgb(0 0 0 / 10%);
     transition-duration: 300ms;
+    font-size: 1.8rem;
+
+    svg {
+      color: ${theme.palette.primary.light};
+    }
 
     z-index: 1;
     :hover {
@@ -80,7 +86,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
   const pages = ["about", "career", "portfolio", "contact"];
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} id="top">
       <AppBar position="static" color="primary">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -104,8 +110,8 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
       </main>
       <footer className={styles.footer}>
         <div className={styles.footerButton}>
-          <MaterialLink className={styles.goUpButton}>
-            <ArrowUpwardIcon />
+          <MaterialLink className={styles.goUpButton} href="#top">
+            <KeyboardArrowUpIcon />
           </MaterialLink>
         </div>
         <Toolbar className={styles.toolbar}>
