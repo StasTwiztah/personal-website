@@ -1,12 +1,22 @@
 {
   "home": {
-    "heading": "Index page"
+    "page-title": "index."
   },
-  "about": "about",
-  "career": "career",
-  "portfolio": "portfolio",
+  "about": {
+    "page-title": "about",
+    "title": "about."
+  },
+  "career": {
+    "page-title": "career",
+    "title": "career."
+  },
+  "portfolio": {
+    "page-title": "portfolio",
+    "title": "portfolio."
+  },
   "contact": {
     "page-title": "contact",
-    "title": "contact."
+    "title": "contact.",
+    "description": "Feel free to contact me using any convenient way."
   }
 }

@@ -1,11 +1,13 @@
+import { css } from "@emotion/css";
 import { createTheme } from "@mui/material";
 
 export const lightTheme = createTheme({
+  components: {},
   palette: {
     primary: {
-      main: "#272643",
+      main: "#45445b",
       dark: "#2A2F3F",
-      light: "#CACACA",
+      light: "#A1A1A1",
     },
     background: {
       default: "#fff",

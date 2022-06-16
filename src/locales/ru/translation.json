@@ -1,9 +1,22 @@
 {
   "home": {
-    "heading": "Домашняя страница"
+    "title": "домашняя страница."
   },
-  "about": "обо мне",
-  "career": "карьера",
-  "portfolio": "портфолио",
-  "contact": "контакты"
+  "about": {
+    "page-title": "обо мне",
+    "title": "обо мне."
+  },
+  "career": {
+    "page-title": "карьера",
+    "title": "карьера."
+  },
+  "portfolio": {
+    "page-title": "портфолио",
+    "title": "портфолио."
+  },
+  "contact": {
+    "page-title": "контакты",
+    "title": "контакты.",
+    "description": "Напиши мне любым удобным способом."
+  }
 }
