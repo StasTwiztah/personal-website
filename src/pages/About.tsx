@@ -11,6 +11,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useStyles } from "../styles/hooks/useStyles";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import DangerousIcon from "@mui/icons-material/Dangerous";
+import { differenceInYears } from "date-fns";
 
 type Technology = {
   name: string;
@@ -19,13 +21,13 @@ type Technology = {
   dateEnded?: Date;
   description?: string;
   search?: string[];
+  icon?: string;
 };
 
 const aboutStyles = (theme: Theme) => ({
   technologies: css`
     margin-top: 32px;
   `,
-
   items: css`
     list-style-type: none;
     display: grid;
@@ -41,22 +43,35 @@ const aboutStyles = (theme: Theme) => ({
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: ${theme.breakpoints.values.sm}px) {
+    @media (max-width: 700px) {
       grid-template-columns: repeat(1, 1fr);
     }
   `,
-  itemName: css`
+  description: css`
     flex: 1;
+    display: flex;
+    flex-direction: column;
   `,
   card: css`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 8px;
+    padding: 8px 16px 8px 8px;
     gap: 24px;
   `,
   favouriteIcon: css`
     color: ${theme.palette.warning.light};
+  `,
+  tooltip: css`
+    :hover {
+      cursor: help;
+    }
+  `,
+  stoppedIcon: css`
+    color: ${theme.palette.error.main};
+  `,
+  years: css`
+    color: ${theme.palette.primary.light};
   `,
 });
 
@@ -68,29 +83,41 @@ export const About = () => {
     {
       name: "React",
       isFavourite: true,
-      dateStarted: new Date(),
+      dateStarted: new Date(2017, 12, 1),
       search: ["react"],
     },
     {
       name: "HTML",
-      dateStarted: new Date(),
+      dateStarted: new Date(2015, 1, 1),
       search: ["html"],
     },
     {
       name: "CSS",
-      dateStarted: new Date(),
+      dateStarted: new Date(2015, 1, 1),
       search: ["css"],
     },
     {
       name: "JavaScript",
-      dateStarted: new Date(),
+      dateStarted: new Date(2017, 12, 1),
       search: ["js", "javascript"],
     },
     {
       name: "TypeScript",
       isFavourite: true,
-      dateStarted: new Date(),
+      dateStarted: new Date(2017, 12, 1),
       search: ["ts", "typescript"],
+    },
+    {
+      name: "Git",
+      dateStarted: new Date(2015, 1, 1),
+      search: ["git"],
+    },
+    {
+      name: "C#",
+      icon: "/assets/images/csharp-logo.svg",
+      dateStarted: new Date(2015, 1, 1),
+      dateEnded: new Date(2020, 1, 12),
+      search: ["c#", "csharp"],
     },
   ];
 
@@ -141,26 +168,53 @@ export const About = () => {
                 ? -1
                 : 1;
             })
-            .map((item, index) => (
-              <Grow in timeout={(index + 2) * 100}>
-                <li className={styles.item}>
-                  <Card key={item.name} className={styles.card}>
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 48, height: 48 }}
-                      image={`/assets/images/${item.name.toLowerCase()}-logo.svg`}
-                      alt={`${item.name} logo`}
-                    />
-                    <Typography variant="h5" className={styles.itemName}>
-                      {item.name}
-                    </Typography>
-                    {item.isFavourite && (
-                      <StarBorderIcon className={styles.favouriteIcon} />
-                    )}
-                  </Card>
-                </li>
-              </Grow>
-            ))}
+            .map((item, index) => {
+              const years = differenceInYears(
+                item.dateEnded || new Date(),
+                item.dateStarted
+              );
+
+              return (
+                <Grow in timeout={(index + 2) * 100}>
+                  <li>
+                    <Card key={item.name} className={styles.card}>
+                      <CardMedia
+                        component="img"
+                        sx={{ width: 48, height: 48 }}
+                        image={
+                          item.icon ||
+                          `/assets/images/${item.name.toLowerCase()}-logo.svg`
+                        }
+                        alt={`${item.name} logo`}
+                      />
+                      <div className={styles.description}>
+                        <Typography variant="h6">{item.name}</Typography>
+                        <Typography
+                          variant="subtitle2"
+                          className={styles.years}
+                        >
+                          {years > 1
+                            ? t("experience-years", { years })
+                            : t("experience-years-less")}
+                        </Typography>
+                      </div>
+
+                      {item.isFavourite && (
+                        <StarBorderIcon className={styles.favouriteIcon} />
+                      )}
+                      {item.dateEnded && (
+                        <div
+                          title={`Not interested since ${item.dateEnded.getFullYear()}`}
+                          className={styles.tooltip}
+                        >
+                          <DangerousIcon className={styles.stoppedIcon} />
+                        </div>
+                      )}
+                    </Card>
+                  </li>
+                </Grow>
+              );
+            })}
         </ul>
       </div>
     </>

@@ -1,13 +1,5 @@
 import { css } from "@emotion/css";
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Theme,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Theme, Toolbar, Typography } from "@mui/material";
 import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Outlet } from "react-router-dom";
@@ -28,6 +20,8 @@ const layoutStyles = (theme: Theme) => ({
   `,
   appBar: css`
     padding: 0 120px;
+    z-index: 1;
+    box-shadow: 0px 7px 14px 4px rgb(0 0 0 / 10%);
   `,
   navigation: css`
     display: flex;

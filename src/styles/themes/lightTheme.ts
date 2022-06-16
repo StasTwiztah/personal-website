@@ -1,4 +1,3 @@
-import { css } from "@emotion/css";
 import { createTheme } from "@mui/material";
 
 export const lightTheme = createTheme({

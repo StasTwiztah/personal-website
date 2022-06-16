@@ -19,5 +19,7 @@
     "title": "contact.",
     "description": "Feel free to contact me using any convenient way."
   },
-  "search": "Search"
+  "search": "Search",
+  "experience-years": "{{years}} years",
+  "experience-years-less": "less than a year"
 }

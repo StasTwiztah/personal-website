@@ -1,7 +1,6 @@
 import { css } from "@emotion/css";
-import { Box, Grow, Stack, Link, Typography } from "@mui/material";
+import { Grow, Link, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { Link as RouterLink } from "react-router-dom";
 import { useStyles } from "../styles/hooks/useStyles";
 
 const contactStyles = () => ({
@@ -65,6 +64,7 @@ export const Contact = () => {
               <img
                 src={`/assets/images/${item}-logo.svg`}
                 className={styles.logo}
+                alt={`${item} logo`}
               />
             </Link>
           </Grow>

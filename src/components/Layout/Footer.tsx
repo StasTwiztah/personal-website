@@ -1,12 +1,6 @@
 import { css } from "@emotion/css";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
-import {
-  Box,
-  Link as MaterialLink,
-  Theme,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, Link as MaterialLink, Theme, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useStyles } from "../../styles/hooks/useStyles";
