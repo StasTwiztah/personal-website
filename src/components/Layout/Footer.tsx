@@ -9,7 +9,7 @@ const footerStyles = (theme: Theme) => ({
   root: css`
     color: ${theme.palette.primary.light};
     position: relative;
-    height: 70px;
+    min-height: 70px;
     background-color: ${theme.palette.background.paper};
   `,
   buttonWrapper: css`

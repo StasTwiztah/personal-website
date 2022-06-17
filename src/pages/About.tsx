@@ -53,6 +53,7 @@ const aboutStyles = (theme: Theme) => ({
     flex-direction: column;
   `,
   card: css`
+    color: ${theme.palette.primary.main} !important;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -87,6 +88,12 @@ export const About = () => {
       search: ["react"],
     },
     {
+      name: "TypeScript",
+      isFavourite: true,
+      dateStarted: new Date(2017, 12, 1),
+      search: ["ts", "typescript"],
+    },
+    {
       name: "HTML",
       dateStarted: new Date(2015, 1, 1),
       search: ["html"],
@@ -102,15 +109,27 @@ export const About = () => {
       search: ["js", "javascript"],
     },
     {
-      name: "TypeScript",
-      isFavourite: true,
-      dateStarted: new Date(2017, 12, 1),
-      search: ["ts", "typescript"],
-    },
-    {
       name: "Git",
       dateStarted: new Date(2015, 1, 1),
       search: ["git"],
+    },
+    {
+      name: "PostgreSQL",
+      dateStarted: new Date(2017, 12, 1),
+      search: ["postgresql", "pg"],
+      icon: "/assets/images/postgres-logo.png",
+    },
+    {
+      name: "PHP",
+      dateStarted: new Date(2022, 5, 23),
+      search: ["php"],
+    },
+    {
+      name: "MS SQL",
+      dateStarted: new Date(2015, 1, 1),
+      dateEnded: new Date(2020, 1, 12),
+      search: ["ms sql server", "microsoft sql server"],
+      icon: "/assets/images/mssql-logo.svg",
     },
     {
       name: "C#",
@@ -175,12 +194,12 @@ export const About = () => {
               );
 
               return (
-                <Grow in timeout={(index + 2) * 100}>
+                <Grow in timeout={(index + 10) * 100}>
                   <li>
                     <Card key={item.name} className={styles.card}>
                       <CardMedia
                         component="img"
-                        sx={{ width: 48, height: 48 }}
+                        sx={{ height: 48, width: 48, objectFit: "contain" }}
                         image={
                           item.icon ||
                           `/assets/images/${item.name.toLowerCase()}-logo.svg`
